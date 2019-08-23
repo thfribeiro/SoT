@@ -1,0 +1,44 @@
+body {
+    background-image: url("/img/background.jpg");
+    background-position: 50% 0%;
+    background-size: 50%;
+    background-repeat: repeat;
+  }
+  .texto{
+      font-family: 'impact';
+      font-size: 250%;
+      color: green;
+  }
+
+  .titulo{
+      font-size: 150%;
+      font-family: 'impact';
+      color: black;
+  }
+  .box1 {
+    background: #E9ecef;
+  }
+  .box2 {
+      font-family: 'impact';
+      background: lightblue;
+      color: black;
+      padding: 5%;
+      border: 5px solid #CCC;
+  }
+
+.botao{
+    padding-left: 22%;
+    padding-top: 5%;
+}
+
+.linha{
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: -0px;
+    margin-right: -0px;
+    border-style: inset;
+    border-width: 1px;
+    border-color:green;
+
+}

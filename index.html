@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8"/>
+
+<html>
+    <head>
+        <title> SoT -  Salvem os Tatus </title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="css/estilo.css"> 
+
+        <link rel="icon" type="imagem/png" href="/img/icon.jpg" />
+        <script>
+                $(document).ready(function(){
+                    $("#btnLogar").click(function(){
+                        $.ajax({
+                            url: "login.php",
+                            type: "GET",
+                            data: {
+                                login: $("#login").val(),
+                                senha: $("#senha").val()
+                            },
+                            success: function(resultado){
+                            var obj = JSON.parse(resultado);
+                            if(obj.id == "-1"){
+                                alert(obj.mensagem);
+                            }else{
+                                window.location.assign("teste.php");
+                            }
+                        }
+                        });
+                    })
+                });
+    
+    
+            </script>
+
+        <div class="text-center">
+            <div class="box1">
+                <hr class="linha">
+                <a href="https://www.facebook.com/tthiago123"><img src="/img/icon.jpg" alt=EasterEgg width=60 height=60/></a>
+                <h1 class="texto">SoT -  Salvem os Tatus</h1>
+                <p style="color:black">
+                    Página criada com intuito de defesa e combate a caça e maltrato de tatus.
+                </p>
+                <hr class="linha">
+                <p></p>
+            </div>
+        </div>
+        <div  class="container">
+            <div class="row">
+                <div class="col-4 md-4"></div>
+                <div class="col-4 md-4">
+                    <div class="box2">
+                        <div class="form-group">
+                            <label for="login"> Login: </label>
+                            <input class="form-control" id="login" type="text" placeholder="Digite seu login">
+                            <label for="senha"> Senha: </label>
+                            <input class="form-control" id="senha" type="password" placeholder="Digite sua senha">
+                        </div>
+                        <div class="botao">
+                                <button id="btnLogar" type="button" class="btn btn-outline-primary"> Logar </button>
+                                <button type="button"  onclick="window.location.assign('cadastro.html');" class="btn btn-outline-info"> Junte-se a luta!!</button>
+                        </div>                           
+                    </div>
+                </div>
+            <div class="col-4 md-4"></div>
+        </div>
+    </head>
+    <body>
+        
+    </body>
+</html>

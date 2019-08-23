@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<meta charset="utf-8"/>
+
+<html>
+    <head>
+        <title> SoT -  Salvem os Tatus </title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        <link rel="icon" type="imagem/png" href="/img/icon.jpg" />
+        <link rel="stylesheet" type="text/css" href="css/estilo.css"> 
+
+        <script>
+            $(document).ready(function(){
+                
+                                $n = $("#nome").val();
+                                $e = $("#email").val();
+                                $l = $("#login").val();
+                                $s = $("#senha").val();
+
+                $("#btnCadastrar").click(function(){
+                    if("#n" == null || "$e" == null || "$l" == null || "$s" == null){
+                        alert("Insira dados válidos em todos os campos!");
+                        $("#nome").val("");
+                        $("#email").val("");
+                        $("#login").val("");
+                        $("#senha").val("");
+                    }
+                    else{
+                        $.ajax({
+                            url: "pagina.php",
+                            type: "GET",
+                            data: {
+                                nome: $("#nome").val(),
+                                email: $("#email").val(),
+                                login: $("#login").val(),
+                                senha: $("#senha").val()
+                            },
+                            success: function(resultado){
+                                $("#saida").html("<h3 class='text-center'>" + resultado + "</h3>")
+                                $("#nome").val("");
+                                $("#email").val("");
+                                $("#login").val("");
+                                $("#senha").val("");
+                            }
+                        });
+                    }
+
+                })
+            });
+
+
+        </script>
+    </head>
+    <body>
+        <div class="text-center">
+            <div class="box1">
+                <hr class="linha">
+                <a href="https://www.facebook.com/tthiago123"><img src="/img/icon.jpg" alt=EasterEgg width=60 height=60/></a>
+                <h1 class="texto">SoT -  Salvem os Tatus</h1>
+                <p style="color:black">
+                    Página criada com intuito de defesa e combate a caça e maltrato de tatus.
+                </p>
+                <hr class="linha">
+                <p></p>
+            </div>
+        </div>
+        <div  class="container">
+            <div class="row">
+                <div class="col-4 md-4"></div>
+                <div class="col-4 md-4">
+                    <div class="box2">
+                        <div class="form-group">
+                            <label for="nome"> Nome: </label>
+                            <input class="form-control" id="nome" type="text" placeholder="Digite seu nome">
+                            <label for="email"> E-mail: </label>
+                            <input class="form-control" id="email"" type="email" placeholder="Digite seu e-mail">
+                            <label for="login"> Login: </label>
+                            <input class="form-control" id="login" type="text" placeholder="Digite seu login">
+                            <label for="senha"> Senha: </label>
+                            <input class="form-control" id="senha"" type="password" placeholder="Digite sua senha">
+                        </div>
+                        <div class="botao">
+                            <div style="padding-left: 5%;">
+                            
+                            </div>
+                            <button id="btnCadastrar" type="button" class="btn btn-outline-primary"> Cadastrar </button>
+                            <button type="button"  onclick="window.location.assign('sair.php');" class="btn btn-outline-info"> Início</button>
+                            </div>
+                            <p></p>
+                        </div>
+                        <div id="saida">
+                        </div>                          
+                    </div>
+                </div>
+            <div class="col-4 md-4">
+            </div>
+        </div>
+    </body>
+</html>
